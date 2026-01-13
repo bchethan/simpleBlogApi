@@ -1,7 +1,7 @@
 const list = document.getElementById("list");
 
 async function fetchData() {
-  const response = await fetch("http://localhost:8000/");
+  const response = await fetch("http://localhost:8000/api");
   const data = await response.json();
 
   // console.log(data)

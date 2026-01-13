@@ -1,26 +1,19 @@
 import http from "node:http";
 import path from "node:path";
-import fs from 'node:fs/promises'
+import { getData } from "./utils/getData.js";
 
 const port = 8000;
 const __dirname = import.meta.dirname
-console.log(__dirname)
 
 const server = http.createServer(async(req, res) => {
   res.writeHead(200, {
     "content-type": "application/json",
     "Access-Control-Allow-Origin": "*",
   });
-  try{
-    const jsonPath = path.join(__dirname,'data', 'posts.json')
-    const data = await fs.readFile(jsonPath,'utf8')
-    
-    res.end(data);
-  }catch(err){
-    console.log(err)
-    res.end({
-      "message":"error while loading data"
-    })
+  const jsonPath = path.join(__dirname,'data', 'posts.json')
+
+  if(req.url === '/api' && req.method === 'GET'){
+    getData  (jsonPath, res)
   }
 });
 
