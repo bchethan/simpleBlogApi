@@ -1,6 +1,7 @@
 import http from "node:http";
 import path from "node:path";
 import { getData } from "./utils/getData.js";
+import { postData } from "./utils/postData.js";
 
 const port = 8000;
 const __dirname = import.meta.dirname
@@ -12,8 +13,13 @@ const server = http.createServer(async(req, res) => {
   });
   const jsonPath = path.join(__dirname,'data', 'posts.json')
 
-  if(req.url === '/api' && req.method === 'GET'){
-    getData  (jsonPath, res)
+  if(req.url === '/api'){
+    if(req.method === 'GET'){
+      getData(jsonPath, res)
+    }
+    if(req.method === 'POST'){
+      postData(jsonPath, res)
+    }
   }
 });
 
