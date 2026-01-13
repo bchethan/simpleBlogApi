@@ -1,0 +1,18 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "My First Blog Post",
+      "content": "Welcome to my blog! This is my first post...",
+      "author": "Chethan",
+      "date": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "title": "Learning Web Development",
+      "content": "Web development has been an exciting journey...",
+      "author": "Scrimba",
+      "date": "2024-01-10"
+    }
+  ]
+}
